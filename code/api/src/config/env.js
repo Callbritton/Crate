@@ -1,3 +1,5 @@
+// Add environment variables in this file
+
 // Imports
 import dotenv from 'dotenv'
 

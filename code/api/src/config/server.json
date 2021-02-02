@@ -1,3 +1,5 @@
+// where api port is designated
+
 {
   "port": 8000,
   "secret": "super-secret-key-crate-api",

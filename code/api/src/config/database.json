@@ -1,3 +1,5 @@
+// could have 'staging' or 'testing' here
+
 {
   "development": {
     "username": "postgres",
