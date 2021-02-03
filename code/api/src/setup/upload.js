@@ -18,6 +18,7 @@ export default function (server) {
     }
   })
 
+// This const is call in index.js
   const upload = multer({
     storage: storage
   }).single('file')

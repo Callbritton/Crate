@@ -1,3 +1,5 @@
+// This is the configuration file. It lists all the dependencies and other
+// configuration options (such as scripts) needed for the app
 {
   "name": "api",
   "version": "1.0.0",

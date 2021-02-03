@@ -29,6 +29,8 @@ export async function create(parentValue, { name, email, password }) {
   if (!user) {
     // User does not exists
     // This makes the password encrypted. Think gem 'bcrypt'
+    // the saltRounds is equal to 10
+    // This is gets from the config/server.json
     const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
     // Call and create a User with (name, email and passwordHashed)
     return await models.User.create({

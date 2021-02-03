@@ -7,6 +7,7 @@ import authentication from './authentication'
 import schema from './schema'
 
 // Setup GraphQL
+// What is default... This is called in index.js
 export default function (server) {
   console.info('SETUP - GraphQL...')
 
