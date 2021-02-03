@@ -16,11 +16,18 @@ export default {
     component: Signup
   },
 
+  This will add the route for the prof
+  // survey: {
+  //   path: '/user/style-preferences',
+  //   component: Survey,
+  //   auth: true
+  // },
+
   profile: {
-    path: '/user/profile',
-    component: Profile,
+    path: '/user/style-preferences',
+    component: Survey,
     auth: true
-  },
+  }
 
   subscriptions: {
     path: '/user/subscriptions',
