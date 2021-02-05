@@ -16,7 +16,7 @@ export default {
     component: Signup
   },
 
-  This will add the route for the prof
+  // This will add the route for the prof
   // survey: {
   //   path: '/user/style-preferences',
   //   component: Survey,

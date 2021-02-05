@@ -10,6 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
 
+  // Sets up the relationship for a One-To-Many Relationship
   Crate.associate = function(models) {
     Crate.hasMany(models.Subscription)
   }
