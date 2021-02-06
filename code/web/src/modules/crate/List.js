@@ -41,7 +41,7 @@ class List extends PureComponent {
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <H3 font="secondary">Crates for everyone!</H3>
 
-            <p style={{ marginTop: '1em', color: grey2 }}>You can choose crate which suits your need. You can also
+            <p style={{ marginTop: '1em', color: grey2 }}>You can choose the crate which suits your need. You can also
               subscribe to multiple crates.</p>
           </GridCell>
         </Grid>
