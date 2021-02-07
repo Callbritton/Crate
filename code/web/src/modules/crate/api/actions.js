@@ -17,19 +17,21 @@ export const CRATES_GET_FAILURE = 'CRATES/GET_FAILURE'
 
 // Get list of crates
 export function getList(orderBy = 'DESC', isLoading = true) {
+//Dispatches an action to the reducer.  This type will return the initial state but with a value of true for "isLoading".
   return dispatch => {
     dispatch({
       type: CRATES_GET_LIST_REQUEST,
       error: null,
       isLoading
     })
-
+//This is posting to the server through the routeApi.  The response includes the data for the 6 crates.  This is found in response.data.data.crates
     return axios.post(routeApi, query({
       operation: 'crates',
       variables: { orderBy },
       fields: ['id', 'name', 'description', 'createdAt', 'updatedAt']
     }))
       .then(response => {
+//After the post request, if the status is 200 ("OK"), another action is dispatched which updates state to include the data for the 6 crates.  If the status is NOT 200 then the response is logged to the console.  If there is an error, an action is dispatched which adds an error message to the state
         if (response.status === 200) {
           dispatch({
             type: CRATES_GET_LIST_RESPONSE,
@@ -51,7 +53,7 @@ export function getList(orderBy = 'DESC', isLoading = true) {
   }
 }
 
-// Get single crate
+// Get single crate - This would get the data for a single crate.  This is similar to what is happening above, but for one crate instead of all of them.  It also includes a parameter of "slug", which is a value that will update the site URL based on which crate is being viewed.
 export function get(slug, isLoading = true) {
   return dispatch => {
     dispatch({

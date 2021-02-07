@@ -22,13 +22,14 @@ const cratesInitialState = {
 // State
 export const crates = (state = cratesInitialState, action) => {
   switch (action.type) {
+    //updates state so that "isLoading" is true
     case CRATES_GET_LIST_REQUEST:
       return {
         ...state,
         isLoading: action.isLoading,
         error: null
       }
-
+    //updates state so that "list" has a value of an array containing the data for all of the crates
     case CRATES_GET_LIST_RESPONSE:
       return {
         ...state,
@@ -36,14 +37,14 @@ export const crates = (state = cratesInitialState, action) => {
         error: action.error,
         list: action.list
       }
-
+    //updates state so that "error" has a value of the error message instead of null
     case CRATES_GET_LIST_FAILURE:
       return {
         ...state,
         isLoading: false,
         error: action.error
       }
-
+    //returns the current or initial state
     default:
       return state
   }
