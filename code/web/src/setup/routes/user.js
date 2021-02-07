@@ -15,13 +15,13 @@ export default {
     path: '/user/signup',
     component: Signup
   },
-
+//Navigates user to their profile page when "profile" is clicked in the navbar
   profile: {
     path: '/user/profile',
     component: Profile,
     auth: true
   },
-
+//Navigates user to their subscriptions page when "subscriptions" is clicked in the navbar
   subscriptions: {
     path: '/user/subscriptions',
     component: Subscriptions,

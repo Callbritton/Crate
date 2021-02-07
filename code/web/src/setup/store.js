@@ -11,7 +11,7 @@ import * as product from '../modules/product/api/state'
 import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
 
-// App Reducer
+// App Reducer - combining all the reducers into a "rootReducer"
 const appReducer = combineReducers({
   common,
   user,
@@ -36,7 +36,7 @@ if (typeof window !== 'undefined') {
   delete window.__INITIAL_STATE__
 }
 
-// Store
+// Store - Create the store with the rootReducer and initial state.  composeWithDevTools allows the app to work with the Redux Dev Tools in Chrome
 export const store = createStore(
   rootReducer,
   initialState,
