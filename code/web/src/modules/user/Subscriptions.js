@@ -47,9 +47,10 @@ class Subscriptions extends PureComponent {
           </GridCell>
         </Grid>
 
-        {/* Product list */}
+        {/* Subscriptions list */}
         <Grid>
           <GridCell>
+          {/* When isLoading is false, if there are subscriptions in the state then they are each rendered */}
             {
               this.props.subscriptions.isLoading
                 ? <Loading/>
@@ -81,4 +82,5 @@ function subscriptionsState(state) {
   }
 }
 
+//connect this component to the store
 export default connect(subscriptionsState, { getListByUser })(Subscriptions)

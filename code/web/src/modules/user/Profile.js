@@ -20,6 +20,7 @@ const Profile = (props) => (
   <div>
     {/* SEO */}
     <Helmet>
+    {/* updates document.title */}
       <title>My Profile - Crate</title>
     </Helmet>
 
@@ -30,16 +31,18 @@ const Profile = (props) => (
       </GridCell>
     </Grid>
 
+    {/* user name and email, buttons to view subscriptions or logout */}
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
 
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
-
+      {/* routes user to their subscriptions */}
         <Link to={userRoutes.subscriptions.path}>
           <Button theme="primary">Subscriptions</Button>
         </Link>
 
+      {/* logout the user */}
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
     </Grid>
@@ -59,4 +62,5 @@ function profileState(state) {
   }
 }
 
+//Connects this component to the Store
 export default connect(profileState, { logout })(Profile)
