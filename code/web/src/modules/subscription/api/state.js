@@ -64,13 +64,14 @@ const subscriptionsByUserInitialState = {
 // State
 export const subscriptionsByUser = (state = subscriptionsByUserInitialState, action) => {
   switch (action.type) {
+//Change isLoading to true
     case SUBSCRIPTIONS_GET_LIST_BY_USER_REQUEST:
       return {
         ...state,
         isLoading: action.isLoading,
         error: null
       }
-
+//Update list to have value of user's subscription data
     case SUBSCRIPTIONS_GET_LIST_BY_USER_RESPONSE:
       return {
         ...state,
@@ -78,7 +79,7 @@ export const subscriptionsByUser = (state = subscriptionsByUserInitialState, act
         error: action.error,
         list: action.list
       }
-
+//Update value for error, isLoading is false
     case SUBSCRIPTIONS_GET_LIST_BY_USER_FAILURE:
       return {
         ...state,

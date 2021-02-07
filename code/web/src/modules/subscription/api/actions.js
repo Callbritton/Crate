@@ -18,7 +18,7 @@ export const SUBSCRIPTIONS_GET_FAILURE = 'SUBSCRIPTIONS/GET_FAILURE'
 
 // Actions
 
-// Get list of subscriptions
+// Get list of all subscriptions
 export function getList(isLoading = true) {
   return dispatch => {
     dispatch({
@@ -67,6 +67,7 @@ export function getListByUser(isLoading = true) {
       operation: 'subscriptionsByUser',
       fields: ['id', 'user { name, email }', 'crate { id, name, description }', 'createdAt']
     }))
+    //If status is "ok", dispatch action to update state with the subscription data for that user
       .then(response => {
         if (response.status === 200) {
           dispatch({
