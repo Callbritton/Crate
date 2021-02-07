@@ -22,19 +22,19 @@ class Item extends PureComponent {
 
   constructor(props) {
     super(props)
-
+//The state for this one component (a single crate)
     this.state = {
       isLoading: false
     }
   }
-
+//Called when +Subscribe is clicked
   onClickSubscribe = (crateId) => {
     this.setState({
       isLoading: true
     })
-
+//Displays message while loading
     this.props.messageShow('Subscribing, please wait...')
-
+//Makes a post to the server.  If there are errors, the first error is shown.  If not, "Subscribed Successfully" is shown and the url in the browser is updated with the path that matches userRoutes.subscriptions
     this.props.create({ crateId })
       .then(response => {
         if (response.data.errors && response.data.errors.length > 0) {
@@ -48,6 +48,7 @@ class Item extends PureComponent {
       .catch(error => {
         this.props.messageShow('There was some error subscribing to this crate. Please try again.')
       })
+//Updates component state so isLoading is false, and hides the status message after 5 seconds
       .then(() => {
         this.setState({
           isLoading: false
@@ -58,7 +59,7 @@ class Item extends PureComponent {
         }, 5000)
       })
   }
-
+//renders the crate on the page with an image, name, description, and a button for adding a subscription to this crate
   render() {
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
@@ -98,11 +99,12 @@ Item.propTypes = {
   messageHide: PropTypes.func.isRequired
 }
 
-// Component State
+// Component State - adds the user data from state to the state for this component
 function itemState(state) {
   return {
     user: state.user
   }
 }
 
+//Connects this component to the store
 export default connect(itemState, { create, messageShow, messageHide })(withRouter(Item))

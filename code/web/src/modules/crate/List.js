@@ -36,7 +36,7 @@ class List extends PureComponent {
           <title>Crates for everyone! - Crate</title>
         </Helmet>
 
-        {/* Top title bar */}
+        {/* Top title bar with heading and subtext describing the page */}
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <H3 font="secondary">Crates for everyone!</H3>
@@ -46,7 +46,7 @@ class List extends PureComponent {
           </GridCell>
         </Grid>
 
-        {/* Crate list */}
+        {/* Crate list - renders a div (Grid).  Conditionally renders either a Loading compnoent (if isLoading is true) or renders out each CrateItem (if isLoading is false and this.props.crates.list has contents).  If isLoading is false but there are no crates in the list, then the it renders a message saying that there are no crates to show. */}
         <Grid>
           <GridCell>
             {
@@ -73,11 +73,11 @@ List.propTypes = {
   getCratesList: PropTypes.func.isRequired
 }
 
-// Component State
+// Component State - returns an object with one key, with a value of the crates part of state
 function listState(state) {
   return {
     crates: state.crates
   }
 }
-
+//Connects this component to the store
 export default connect(listState, { getCratesList })(List)
