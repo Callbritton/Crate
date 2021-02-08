@@ -11,12 +11,14 @@ import * as subscription from '../../modules/subscription/query'
 const query = new GraphQLObjectType({
   name: 'query',
   description: 'API Queries [Read]',
-
+  
+  // we need to add another field here for survey
   fields: () => ({
     ...user,
     ...product,
     ...crate,
     ...subscription
+    // ...survey
   })
 })
 

@@ -12,11 +12,13 @@ const mutation = new GraphQLObjectType({
   name: 'mutations',
   description: 'API Mutations [Create, Update, Delete]',
 
+// we need to add another field here for survey
   fields: {
     ...user,
     ...product,
     ...crate,
     ...subscription
+    // ...survey
   }
 })
 

@@ -7,6 +7,8 @@
 // exports a function that uses Sequelize and DataTypes
 // DataTypes == a place holder for data types
 // Sequelize == postgres and SQL connection to database
+
+// Lets add another attribute to store the outcome of the survey
 module.exports = function(sequelize, DataTypes) {
   // let == is an updated version of var
   let User = sequelize.define('users', {
@@ -30,6 +32,11 @@ module.exports = function(sequelize, DataTypes) {
       // data type is Text
       type: DataTypes.TEXT
     }
+
+    // Potentially this is the additional field added to User
+    // survey: {
+    //   type: DataTypes.STRING
+    // }
   })
 
   // makes relationships for User
