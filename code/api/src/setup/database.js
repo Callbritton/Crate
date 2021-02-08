@@ -1,9 +1,14 @@
 // Imports
+// Importing ORM (like ActiveRecord) functionality from Sequelize
+
 import { Sequelize } from 'sequelize'
+
+// Importing ENV data to use in database setup and connection
 
 // App Imports
 import { NODE_ENV } from '../config/env'
 import databaseConfig from '../config/database.json'
+
 
 // Load database config
 const databaseConfigEnv = databaseConfig[NODE_ENV]

@@ -1,3 +1,5 @@
+// Looks like importing and loading in needed modules for database setup
+
 // Imports
 import express from 'express'
 import path from 'path'

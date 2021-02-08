@@ -1,6 +1,9 @@
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
+// This appears to be where we define the object type and it's attributes
+// to be imported and utilized by mutations and query
+
 // Crate type
 const CrateType = new GraphQLObjectType({
   name: 'crate',

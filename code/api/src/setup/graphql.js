@@ -11,7 +11,7 @@ export default function (server) {
   console.info('SETUP - GraphQL...')
 
   server.use(authentication)
-
+  // debugger;
   // API (GraphQL on route `/`)
   server.use(serverConfig.graphql.endpoint, graphqlHTTP(request => ({
     schema,

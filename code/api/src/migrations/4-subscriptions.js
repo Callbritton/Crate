@@ -9,6 +9,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
+        // This defines the relationship between the user and subscription
         references: {
           model: 'users',
           key: 'id'
@@ -17,6 +18,7 @@ module.exports = {
       },
       crateId: {
         type: Sequelize.INTEGER,
+        // this defines the relationship between the subscription and the crate
         references: {
           model: 'crates',
           key: 'id'

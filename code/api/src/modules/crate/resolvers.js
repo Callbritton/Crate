@@ -2,6 +2,12 @@
 import models from '../../setup/models'
 import params from '../../config/params'
 
+// The resolvers file appears to be where the CRUD functionality utilized in the
+// mutations (Create, Update, and Destroy) and query files (Index and Show)
+// Is actually built (much like our Rails Controller file)
+
+// Show functionality:
+
 // Get crate by ID
 export async function getById(parentValue, { crateId }) {
   const crate = await models.Crate.findOne({ where: { id: crateId } })
@@ -14,10 +20,14 @@ export async function getById(parentValue, { crateId }) {
   }
 }
 
+// Index functionality:
+
 // Get all crates
 export async function getAll(parentValue, { orderBy }) {
   return await models.Crate.findAll({ order: [['id', orderBy]] })
 }
+
+// Create:
 
 // Create crate
 export async function create(parentValue, { name, description }, { auth }) {
@@ -30,6 +40,8 @@ export async function create(parentValue, { name, description }, { auth }) {
     throw new Error('Operation denied.')
   }
 }
+
+// Update:
 
 // Update crate
 export async function update(parentValue, { id, name, description }, { auth }) {
@@ -45,6 +57,8 @@ export async function update(parentValue, { id, name, description }, { auth }) {
     throw new Error('Operation denied.')
   }
 }
+
+// Destroy:
 
 // Delete crate
 export async function remove(parentValue, { id }, { auth }) {

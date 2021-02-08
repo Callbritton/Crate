@@ -1,5 +1,10 @@
 // Imports
+
+// Imports GraphQL functionality
 import { GraphQLString, GraphQLInt } from 'graphql'
+
+// Imports CrateType and crud fucntionality which is defined in the resolver
+// (kind of like how our controllers have the CRUD functionality defined there?)
 
 // App Imports
 import CrateType from './types'

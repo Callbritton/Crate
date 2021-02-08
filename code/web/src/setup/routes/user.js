@@ -22,6 +22,14 @@ export default {
     auth: true
   },
 
+  // survey route would possibly live here:
+
+  // profile: {
+  //   path: '/user/style-preferences',
+  //   component: Survey,
+  //   auth: true
+  // },
+
   subscriptions: {
     path: '/user/subscriptions',
     component: Subscriptions,
