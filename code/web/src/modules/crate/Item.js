@@ -58,7 +58,7 @@ class Item extends PureComponent {
         }, 5000)
       })
   }
-
+// route will take to survey upon first subscription
   render() {
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
