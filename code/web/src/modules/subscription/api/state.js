@@ -16,6 +16,7 @@ import {
 // Subscriptions list
 
 // Initial State
+// I imagine this is the subscription list for a user
 const subscriptionsInitialState = {
   isLoading: false,
   error: null,

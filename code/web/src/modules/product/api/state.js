@@ -60,6 +60,7 @@ export const products = (state = productsInitialState, action) => {
 // Single product
 
 // Initial State
+// haven't seen what goes inside the item but maybe it's name, description and slug?
 const productInitialState = {
   isLoading: false,
   error: null,

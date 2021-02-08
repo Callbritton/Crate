@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
+// take time to learn about Helmet and Grid/GridCell
 
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
@@ -28,6 +29,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
 
+    // state informs post request
     this.state = {
       user: {
         email: '',
@@ -54,6 +56,7 @@ class Login extends Component {
 
     this.props.login(this.state.user)
       .then(response => {
+        // this is why error only showed temporarily when we couldn't log in
         if (this.props.user.error && this.props.user.error.length > 0) {
           this.props.messageShow(this.props.user.error)
 

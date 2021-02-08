@@ -14,6 +14,7 @@ export const CRATES_GET_RESPONSE = 'CRATES/GET_RESPONSE'
 export const CRATES_GET_FAILURE = 'CRATES/GET_FAILURE'
 
 // Actions
+// find user history? look at user individual crates and what they contain
 
 // Get list of crates
 export function getList(orderBy = 'DESC', isLoading = true) {
@@ -94,6 +95,7 @@ export function getById(crateId) {
 }
 
 // Create or update crate
+// conditional logic to update/create crates
 export function createOrUpdate(crate) {
   if (crate.id > 0) {
     return update(crate)

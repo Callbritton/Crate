@@ -1,4 +1,6 @@
 // Imports
+// routes imported from route file, will need to create new one for survey component that will be created
+// will also need to update route currently changing on subscription
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -16,6 +18,7 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
+// we will render the survey results here for now, may update to a new component in future
 const Profile = (props) => (
   <div>
     {/* SEO */}

@@ -1,4 +1,5 @@
 // Imports
+// reminder to talk to group about axios
 import axios from 'axios'
 import { query, mutation } from 'gql-query-builder'
 import cookie from 'js-cookie'

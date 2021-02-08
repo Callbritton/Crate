@@ -39,6 +39,7 @@ class Signup extends Component {
     }
   }
 
+  // handles change for username in state
   onChange = (event) => {
     let user = this.state.user
     user[event.target.name] = event.target.value
@@ -62,7 +63,7 @@ class Signup extends Component {
         this.setState({
           isLoading: false
         })
-
+        // conditional logic for successful sign up
         if (response.data.errors && response.data.errors.length > 0) {
           this.props.messageShow(response.data.errors[0].message)
         } else {
