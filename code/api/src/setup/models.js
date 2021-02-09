@@ -9,6 +9,7 @@ const models = {
   Product: databaseConnection.import('../modules/product/model'),
   Crate: databaseConnection.import('../modules/crate/model'),
   Subscription: databaseConnection.import('../modules/subscription/model')
+  // We need to add a survey model
 }
 
 Object.keys(models).forEach(modelName => {

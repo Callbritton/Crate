@@ -19,6 +19,12 @@ module.exports = {
       role: {
         type: Sequelize.TEXT
       },
+      style_result: {
+        type: Sequelize.INTEGER
+      },
+      user_nick_name: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
