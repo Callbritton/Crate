@@ -2,6 +2,7 @@
 import { Sequelize } from 'sequelize'
 
 // App Imports
+// it knows to look to for a test db; jest knows to look for test db
 import { NODE_ENV } from '../config/env'
 import databaseConfig from '../config/database.json'
 
