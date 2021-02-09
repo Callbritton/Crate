@@ -13,12 +13,13 @@ class Question extends PureComponent {
 
   choices = this.props.choices.map(choice => {
     return (
-      <div>
+      <div key={ choice.value }>
         <img src={ choice.image } alt={ choice.label }></img>
         <p>{ choice.label }</p>
       </div>
     )
   })
+
 
   render() {
 
