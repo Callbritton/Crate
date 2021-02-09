@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import surveyData from './surveyData'
+import { surveyData } from '../survey/surveyData'
 import Question from '../survey/Question'
-
+import Button from '../../ui/button/Button'
 class Survey extends PureComponent {
 
   constructor(props) {
@@ -15,9 +15,10 @@ class Survey extends PureComponent {
     }
   }
 
-  questions = surveyData.questions.map(question => {
+  surveyQuestions = surveyData.questions.map(question => {
     return (
       <Question
+        key={ question.id }
         id={ question.id }
         title={ question.title }
         choices={ question.choices }
@@ -25,17 +26,23 @@ class Survey extends PureComponent {
     )
   })
 
+
   render() {
+    console.log(surveyData);
+
     return (
       <div>
         <div>
           <h1>Style Preferences</h1>
-          <h3>Complete the survey below to find your style!</h3>
         </div>
         <div>
-        { this.questions }
+        <h3>Complete the survey below to find your style!</h3>
+        { this.surveyQuestions }
         </div>
+        <Button style={{ background: 'purple' }}>Show me my style</Button>
       </div>
     )
   }
 }
+
+export default Survey;
