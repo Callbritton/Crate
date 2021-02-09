@@ -19,6 +19,9 @@ module.exports = {
       role: {
         type: Sequelize.TEXT
       },
+      style_survey: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
