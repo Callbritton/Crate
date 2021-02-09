@@ -12,11 +12,11 @@ class Question extends PureComponent {
     }
   }
 
-  handleClick = (e) => {
+  handleClick = async (e) => {
     let choice = e.target.id
-    this.setState({ choice: parseInt(choice)})
+    await this.setState({ choice: parseInt(choice)})
+    this.props.saveSelection(`q${this.props.id}`, this.state.choice)
   }
-
 
   choices = this.props.choices.map(choice => {
     return (

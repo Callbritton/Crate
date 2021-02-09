@@ -13,8 +13,13 @@ class Survey extends PureComponent {
 
     this.state = {
       complete: false,
-      userChoices: []
+      userChoices: {q1: 0, q2: 0, q3: 0, q4: 0, q5: 0}
     }
+  }
+
+  saveSelection = (question, choice) => {
+    this.setState({ userChoices: { ...this.state.userChoices, [question]: choice }})
+    console.log("user choices", this.state.userChoices)
   }
 
   surveyQuestions = surveyData.questions.map(question => {
@@ -24,6 +29,7 @@ class Survey extends PureComponent {
         id={ question.id }
         title={ question.title }
         choices={ question.choices }
+        saveSelection={ this.saveSelection }
       />
     )
   })
