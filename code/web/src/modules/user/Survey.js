@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { surveyData } from '../survey/surveyData'
 import Question from '../survey/Question'
 import Button from '../../ui/button/Button'
+import { Grid, GridCell } from '../../ui/grid'
+
 class Survey extends PureComponent {
 
   constructor(props) {
@@ -31,14 +33,18 @@ class Survey extends PureComponent {
     console.log(surveyData);
 
     return (
-      <div>
-        <div>
-          <h1>Style Preferences</h1>
-        </div>
-        <div>
-        <h3>Complete the survey below to find your style!</h3>
-        { this.surveyQuestions }
-        </div>
+      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', border: "solid black 1px"}}>
+        <Grid>
+          <GridCell>
+            <h1>Style Preferences</h1>
+          </GridCell>
+        </Grid>
+        <Grid>
+          <GridCell>
+          <h3>Complete the survey below to find your style!</h3>
+          { this.surveyQuestions }
+          </GridCell>
+        </Grid>
         <Button style={{ background: 'purple' }}>Show me my style</Button>
       </div>
     )

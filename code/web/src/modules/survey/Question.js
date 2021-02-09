@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import { Grid, GridCell } from '../../ui/grid'
 
 class Question extends PureComponent {
 
@@ -11,11 +12,22 @@ class Question extends PureComponent {
     }
   }
 
+  handleClick = (e) => {
+    let choice = e.target.id
+    this.setState({ choice: parseInt(choice)})
+  }
+
+
   choices = this.props.choices.map(choice => {
     return (
-      <div key={ choice.value }>
-        <img src={ choice.image } alt={ choice.label }></img>
-        <p>{ choice.label }</p>
+      <div 
+      onClick={ this.handleClick } 
+      style={{border: 'solid black 1px'}} 
+      key={ choice.value }
+      id={ choice.value }
+      >
+        <img id={ choice.value } src={ choice.image } alt={ choice.label }></img>
+        <p id={ choice.value }>{ choice.label }</p>
       </div>
     )
   })
@@ -26,13 +38,17 @@ class Question extends PureComponent {
     const { title, choices, id } = this.props;
 
     return (
-      <div>
-        <div>
-          <h3>{ title }</h3>
-        </div>
-        <div>
-        { this.choices }
-        </div>
+      <div style={{border: 'solid black 1px'}}>
+        <Grid>
+          <GridCell>
+            <h3>{ title }</h3>
+          </GridCell>
+        </Grid>
+        <Grid>
+          <GridCell>
+          { this.choices }
+          </GridCell>
+        </Grid>
       </div>
     )
   }
