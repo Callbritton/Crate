@@ -15,11 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     role: {
       type: DataTypes.TEXT
     },
-    style_result: {
+    style_survey: {
       type: DataTypes.INTEGER
-    },
-    user_nick_name: {
-      type: DataTypes.STRING
     }
   })
 

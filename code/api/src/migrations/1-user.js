@@ -19,11 +19,8 @@ module.exports = {
       role: {
         type: Sequelize.TEXT
       },
-      style_result: {
+      style_survey: {
         type: Sequelize.INTEGER
-      },
-      user_nick_name: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
