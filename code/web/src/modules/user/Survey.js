@@ -5,6 +5,9 @@ import { surveyData } from '../survey/surveyData'
 import Question from '../survey/Question'
 import Button from '../../ui/button/Button'
 import { Grid, GridCell } from '../../ui/grid'
+import userRoutes from '../../setup/routes/user'
+import { Link, withRouter } from 'react-router-dom'
+
 
 class Survey extends PureComponent {
 
@@ -13,7 +16,7 @@ class Survey extends PureComponent {
 
     this.state = {
       complete: false,
-      userChoices: {q1: 0, q2: 0},
+      userChoices: {q1: 0, q2: 0, q3: 0, q4: 0, q5: 0},
       styleNum: 0
     }
   }
@@ -23,7 +26,7 @@ class Survey extends PureComponent {
     console.log("user choices", this.state.userChoices)
   }
 
-  determineStyleNum = (nums) => { 
+  determineStyleNum = (nums) => {
     let store = nums,
     distribution = {},
     max = 0,
@@ -38,7 +41,7 @@ class Survey extends PureComponent {
       if (distribution[a] === max) {
           result.push(a);
       }
-      
+
     });
     return result[0]
   }
@@ -48,6 +51,8 @@ class Survey extends PureComponent {
     const userAnswers = Object.values(this.state.userChoices)
     let result = this.determineStyleNum(userAnswers)
     this.setState({styleNum: result})
+    this.props.history.push(userRoutes.profile.path)
+
   }
 
   surveyQuestions = surveyData.questions.map(question => {
@@ -85,4 +90,4 @@ class Survey extends PureComponent {
   }
 }
 
-export default Survey;
+export default (withRouter(Survey));
