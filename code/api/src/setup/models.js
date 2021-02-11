@@ -8,8 +8,8 @@ const models = {
   User: databaseConnection.import('../modules/user/model'),
   Product: databaseConnection.import('../modules/product/model'),
   Crate: databaseConnection.import('../modules/crate/model'),
-  Subscription: databaseConnection.import('../modules/subscription/model')
-  // We need to add a survey model
+  Subscription: databaseConnection.import('../modules/subscription/model'),
+  Style: databaseConnection.import('../modules/style/model')
 }
 
 Object.keys(models).forEach(modelName => {
