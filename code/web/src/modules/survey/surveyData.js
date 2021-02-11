@@ -57,22 +57,22 @@ export const surveyData = {
       title: 'Pick your favorite meal.',
       choices: [
         {
-          image: "url",
+          image: "https://i.imgur.com/QvAMKmjh.jpg",
           label: "Thai Takeout",
           value: 1
         },
         {
-          image: "url",
+          image: "https://i.imgur.com/tdC9If1.jpeg",
           label: "BBQ",
           value: 2
         },
         {
-          image: "url",
+          image: "https://i.imgur.com/xvfpCCm.jpg",
           label: "Steakhouse",
           value: 3
         },
         {
-          image: "url",
+          image: "https://i.imgur.com/Pw8lR3V.jpeg",
           label: "Sushi",
           value: 4
         }
