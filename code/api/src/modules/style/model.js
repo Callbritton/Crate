@@ -2,7 +2,7 @@
 
 // STYLE
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('style', {
+  return sequelize.define('styles', {
     description: {
       type: DataTypes.STRING
     },
