@@ -8,10 +8,11 @@ import { Grid, GridCell } from '../../ui/grid'
 import userRoutes from '../../setup/routes/user'
 import { Link, withRouter } from 'react-router-dom'
 import { messageShow, messageHide } from '../common/api/actions'
+import { primary } from '../../ui/common/gradients'
+import { white } from '../../ui/common/colors'
 
 
 class Survey extends PureComponent {
-
   constructor(props) {
     super(props)
 
@@ -81,7 +82,7 @@ class Survey extends PureComponent {
 
   render() {
     return (
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', border: "solid black 1px"}}>
+      <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', border: "solid black 1px"}}>
         <Grid>
           <GridCell>
             <h1>Style Preferences</h1>
@@ -89,11 +90,15 @@ class Survey extends PureComponent {
         </Grid>
         <Grid>
           <GridCell>
-          <h3>Complete the survey below to find your style!</h3>
+          <h3 style={{ marginTop: '1.5em' }}>
+              Complete the survey below to find your style!
+          </h3>
           { this.surveyQuestions }
           </GridCell>
         </Grid>
-        <Button onClick={ this.handleSubmit } style={{ marginTop: '0.5em', background: 'purple' }}>Show me my style</Button>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button onClick={ this.handleSubmit } style={{ marginTop: '0.5em', background: primary, color: white }}>Show me my style</Button>
+        </div>
       </div>
     )
   }

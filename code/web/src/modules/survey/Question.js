@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, GridCell } from '../../ui/grid'
+import { primary } from '../../ui/common/gradients'
+import { white } from '../../ui/common/colors'
+
 
 class Question extends PureComponent {
-
   constructor(props) {
     super(props)
 
@@ -20,14 +22,20 @@ class Question extends PureComponent {
 
   choices = this.props.choices.map(choice => {
     return (
-      <div 
-      onClick={ this.handleClick } 
-      style={{border: 'solid black 1px'}} 
+      <div
+      onClick={ this.handleClick }
+      style={{ padding: '0.5em', border: 'solid black 1px', width: '50%'}}
       key={ choice.value }
       id={ choice.value }
       >
-        <img id={ choice.value } src={ choice.image } alt={ choice.label }></img>
-        <p id={ choice.value }>{ choice.label }</p>
+        <img
+          id={ choice.value }
+          src={ choice.image }
+          alt={ choice.label }
+          style={{ width: '100px', height: '100px', objectFit: 'contain' }}>
+        </img>
+        <p id={ choice.value }>{ choice.label }
+        </p>
       </div>
     )
   })
@@ -38,14 +46,14 @@ class Question extends PureComponent {
     const { title, choices, id } = this.props;
 
     return (
-      <div style={{border: 'solid black 1px'}}>
+      <div style={{ margin: '1em 0em', border: 'solid black 1px'}}>
         <Grid>
-          <GridCell>
+          <GridCell style={{ background: primary, color: white }}>
             <h3>{ title }</h3>
           </GridCell>
         </Grid>
         <Grid>
-          <GridCell>
+          <GridCell style={{ display: 'flex' }}>
           { this.choices }
           </GridCell>
         </Grid>
