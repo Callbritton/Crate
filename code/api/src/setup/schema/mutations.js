@@ -6,7 +6,7 @@ import * as user from '../../modules/user/mutations'
 import * as product from '../../modules/product/mutations'
 import * as crate from '../../modules/crate/mutations'
 import * as subscription from '../../modules/subscription/mutations'
-// there will need to be an import for our survey table
+import * as style from '../../modules/style/mutations'
 
 // Mutation
 const mutation = new GraphQLObjectType({
@@ -17,8 +17,8 @@ const mutation = new GraphQLObjectType({
     ...user,
     ...product,
     ...crate,
-    ...subscription
-    // we need to add a field for surveys
+    ...subscription,
+    ...style
   }
 })
 
