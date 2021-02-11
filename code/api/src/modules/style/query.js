@@ -11,7 +11,7 @@ export const styles = {
   resolve: getAll
 }
 
-// Crate By ID
+// Style By ID
 export const styleById = {
   type: StyleType,
   args: {
