@@ -60,6 +60,7 @@ class Item extends PureComponent {
   }
 
   render() {
+    console.log(this.props)
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
 

@@ -63,7 +63,7 @@ class Item extends PureComponent {
   }
 
   render() {
-    // const { id, crate, createdAt } = this.props.subscription
+    const { id, crate, createdAt } = this.props.subscription
     const { isLoading } = this.state
 
     return (
