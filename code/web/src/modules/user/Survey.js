@@ -7,6 +7,7 @@ import Button from '../../ui/button/Button'
 import { Grid, GridCell } from '../../ui/grid'
 import userRoutes from '../../setup/routes/user'
 import { Link, withRouter } from 'react-router-dom'
+import { messageShow, messageHide } from '../common/api/actions'
 
 
 class Survey extends PureComponent {
@@ -17,7 +18,8 @@ class Survey extends PureComponent {
     this.state = {
       complete: false,
       userChoices: {q1: 0, q2: 0, q3: 0, q4: 0, q5: 0},
-      styleNum: 0
+      styleNum: 0,
+      isComplete: false
     }
   }
 
@@ -48,11 +50,20 @@ class Survey extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const userAnswers = Object.values(this.state.userChoices)
-    let result = this.determineStyleNum(userAnswers)
-    this.setState({styleNum: result})
-    this.props.history.push(userRoutes.profile.path)
 
+    if (this.checkCompletion()) {
+      const userAnswers = Object.values(this.state.userChoices)
+      let result = this.determineStyleNum(userAnswers)
+      this.setState({ styleNum: result, isComplete: true })
+      this.props.history.push(userRoutes.profile.path)
+    } else {
+      this.props.messageShow('Please answer all questions');
+    }
+  }
+
+  checkCompletion = () => {
+    const userAnswers = Object.values(this.state.userChoices);
+    return (userAnswers.includes(0)) ? false : true
   }
 
   surveyQuestions = surveyData.questions.map(question => {
@@ -69,8 +80,6 @@ class Survey extends PureComponent {
 
 
   render() {
-    console.log(surveyData);
-
     return (
       <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', border: "solid black 1px"}}>
         <Grid>
@@ -84,10 +93,10 @@ class Survey extends PureComponent {
           { this.surveyQuestions }
           </GridCell>
         </Grid>
-        <Button onClick={ this.handleSubmit } style={{ background: 'purple' }}>Show me my style</Button>
+        <Button onClick={ this.handleSubmit } style={{ marginTop: '0.5em', background: 'purple' }}>Show me my style</Button>
       </div>
     )
   }
 }
 
-export default (withRouter(Survey));
+export default connect(null, { messageShow, messageHide })(withRouter(Survey));

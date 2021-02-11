@@ -15,6 +15,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
+
 // Component
 const Profile = (props) => (
   <div>
@@ -43,6 +44,10 @@ const Profile = (props) => (
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
     </Grid>
+    <div style={{background: grey, border: '1px solid black', textAlign: 'center', padding: '2em'}}>
+      <H4 style={{ marginBottom: '0.5em'}}>Your style is:</H4>
+      <H3 style={{ fontWeight: 'bold'}}>Edgy and Hip</H3>
+    </div>
   </div>
 )
 
