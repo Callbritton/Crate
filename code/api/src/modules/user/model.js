@@ -22,6 +22,10 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
+    User.belongsTo(models.Style, {
+      foreignKey: 'id',
+      as: 'styles'
+    })
   }
 
   return User
