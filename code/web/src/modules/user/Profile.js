@@ -17,6 +17,7 @@ import { logout } from './api/actions'
 // import SurveyItem from '../survey/Item'
 // we need to add a Item.js to the '/survey' folder to export
 
+
 // Component
 const Profile = (props) => (
   <div>
@@ -45,6 +46,10 @@ const Profile = (props) => (
         <Button theme="secondary" onClick={props.logout} style={{ marginLeft: '1em' }}>Logout</Button>
       </GridCell>
     </Grid>
+    <div style={{background: grey, border: '1px solid black', textAlign: 'center', padding: '2em'}}>
+      <H4 style={{ marginBottom: '0.5em'}}>Your style is:</H4>
+      <H3 style={{ fontWeight: 'bold' }}>{props.survey.score}</H3>
+    </div>
   </div>
 )
 
@@ -57,7 +62,8 @@ Profile.propTypes = {
 // Component State
 function profileState(state) {
   return {
-    user: state.user
+    user: state.user,
+    survey: state.survey
   }
 }
 
