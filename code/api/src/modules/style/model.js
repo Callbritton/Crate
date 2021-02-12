@@ -10,4 +10,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   })
+
+  Style.associate = function(models) {
+    Style.hasMany(models.User, {
+      foreignKey: 'style_survey',
+      as: 'users',
+    })
+  }
+  return Style
 }
