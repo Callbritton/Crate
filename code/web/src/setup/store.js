@@ -10,11 +10,13 @@ import user from '../modules/user/api/state'
 import * as product from '../modules/product/api/state'
 import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
+import { survey } from '../modules/survey/api/state'
 
 // App Reducer
 const appReducer = combineReducers({
   common,
   user,
+  survey,
   ...product,
   ...subscription,
   ...crate
