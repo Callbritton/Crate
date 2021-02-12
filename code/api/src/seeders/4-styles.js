@@ -17,7 +17,7 @@ module.exports = {
       },
       {
         description: 'Casual',
-        image_url: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.puttingmetogether.com%2Fwp-content%2Fuploads%2F2019%2F05%2FWhite-tee-brown-cardigan-skinny-jeans-leopard-print-sandals-grey-purse.jpg&imgrefurl=https%3A%2F%2Fwww.puttingmetogether.com%2Fways-to-wear-a-white-tee-spring-summer%2Fwhite-tee-brown-cardigan-skinny-jeans-leopard-print-sandals-grey-purse%2F&tbnid=7-9xvdw2-_i4nM&vet=10CAcQxiAoB2oXChMIqK6jx7Hj7gIVAAAAAB0AAAAAECY..i&docid=Q5yPqihOMoDX-M&w=3456&h=5184&itg=1&q=casual%20outfits&hl=en&client=safari&ved=0CAcQxiAoB2oXChMIqK6jx7Hj7gIVAAAAAB0AAAAAECY',
+        image_url: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.outfittrends.com%2Foutfit-ideas-for-black-women%2F&psig=AOvVaw27P9Ulj2EJIxmsQweprqAZ&ust=1613187070381000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPjG7qS04-4CFQAAAAAdAAAAABAN',
         createdAt: new Date(),
         updatedAt: new Date()
       },
