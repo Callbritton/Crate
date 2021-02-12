@@ -68,6 +68,25 @@ export async function getAll() {
   return await models.User.findAll()
 }
 
+// Get User Style
+export async function getUserStyle(parentValue, { id }) {
+  const user = await models.User.findOne({ where: { id } })
+  console.log(user)
+  if (!user) {
+    // User does not exists
+    throw new Error(`We cannot find that user.`)
+  } else {
+  const userDetails = user.get()
+  // console.log(userDetails)
+    return await models.Style.findOne({
+      where: { id: userDetails.style_survey },
+      include: [
+        { model: models.Style, as: 'styles' },
+      ]
+    })
+  }
+}
+
 // Delete
 export async function remove(parentValue, { id }) {
   return await models.User.destroy({ where: { id } })
