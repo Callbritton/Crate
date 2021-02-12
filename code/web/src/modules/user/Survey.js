@@ -10,6 +10,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { messageShow, messageHide } from '../common/api/actions'
 import { primary } from '../../ui/common/gradients'
 import { white } from '../../ui/common/colors'
+import { saveStyle } from '../survey/api/actions'
 
 
 class Survey extends PureComponent {
@@ -26,7 +27,6 @@ class Survey extends PureComponent {
 
   saveSelection = (question, choice) => {
     this.setState({ userChoices: { ...this.state.userChoices, [question]: choice }})
-    console.log("user choices", this.state.userChoices)
   }
 
   determineStyleNum = (nums) => {
@@ -56,6 +56,7 @@ class Survey extends PureComponent {
       const userAnswers = Object.values(this.state.userChoices)
       let result = this.determineStyleNum(userAnswers)
       this.setState({ styleNum: result, isComplete: true })
+      this.props.saveStyle(result)
       this.props.history.push(userRoutes.profile.path)
     } else {
       this.props.messageShow('Please answer all questions');
@@ -104,4 +105,4 @@ class Survey extends PureComponent {
   }
 }
 
-export default connect(null, { messageShow, messageHide })(withRouter(Survey));
+export default connect(null, { messageShow, messageHide, saveStyle })(withRouter(Survey));
