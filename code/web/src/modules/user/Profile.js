@@ -46,7 +46,7 @@ const Profile = (props) => (
     </Grid>
     <div style={{background: grey, border: '1px solid black', textAlign: 'center', padding: '2em'}}>
       <H4 style={{ marginBottom: '0.5em'}}>Your style is:</H4>
-      <H3 style={{ fontWeight: 'bold' }}>{props.user.details.style_survey}</H3>
+      <H3 style={{ fontWeight: 'bold' }}>{props.survey.score}</H3>
     </div>
   </div>
 )
@@ -60,7 +60,8 @@ Profile.propTypes = {
 // Component State
 function profileState(state) {
   return {
-    user: state.user
+    user: state.user,
+    survey: state.survey
   }
 }
 
