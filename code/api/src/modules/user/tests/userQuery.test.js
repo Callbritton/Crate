@@ -27,8 +27,6 @@ describe('user queries', () => {
       })
     )
     console.log('INFO - Server started.')
-
-
   })
 
   it('can successfully query users with names', async (done) => {
