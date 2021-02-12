@@ -53,7 +53,7 @@ describe('user queries', () => {
       .post('/')
       .send({ query: '{ user(id: 2) { id name email password role style_survey } }' })
       .expect(200)
-  
+
     const user = response.body.data.user
     expect(user).toHaveProperty('id')
     expect(user.id).toBe(2)
@@ -74,6 +74,7 @@ describe('user queries', () => {
     .post('/')
     .send({ query: '{ user(id: 2) { id name email password role } }'})
     .expect(200)
+
     const user = response.body.data.user
     expect(user.id).toBe(2)
   })
@@ -83,7 +84,7 @@ describe('user queries', () => {
     .post('/')
     .send({ query: '{ user(id: 2) { } }' })
     .expect(400)
-    // console.log(response.body)
+
     expect(response.body.errors[0].message).toBe('Syntax Error: Expected Name, found }')
   })
 
@@ -111,9 +112,9 @@ describe('user queries', () => {
     const userStyle = user_response.body.data.styleByUser
     expect(userStyle.description).toBe('Edgy')
     expect(userStyle.description).not.toBe('Casual')
-  // })
   done()
   })
+
   it('cannot find a specific users style description if user doesnt exsist', async (done) => {
     // const user = models.User.create({
     //   id: 1,
@@ -124,7 +125,7 @@ describe('user queries', () => {
     //   style_survey: 3
     // })
     // console.log(user.id)
-    console.log("INFO - Mod4 Student user created.")
+    // console.log("INFO - Mod4 Student user created.")
 
     const user_response = await request(server)
       .post('/')
@@ -133,7 +134,7 @@ describe('user queries', () => {
           `query { styleByUser(id: 100 ) { description } }`
       })
       .expect(200)
-      console.log(user_response.body)
+
     expect(user_response.body.errors[0].message).toBe(`We cannot find that user.`)
   done()
   })
