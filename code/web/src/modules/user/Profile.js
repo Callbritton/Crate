@@ -14,6 +14,8 @@ import { grey, grey2 } from '../../ui/common/colors'
 // App Imports
 import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
+// import SurveyItem from '../survey/Item'
+// we need to add a Item.js to the '/survey' folder to export
 
 // Component
 const Profile = (props) => (
