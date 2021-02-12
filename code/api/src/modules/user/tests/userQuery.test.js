@@ -116,17 +116,6 @@ describe('user queries', () => {
   })
 
   it('cannot find a specific users style description if user doesnt exsist', async (done) => {
-    // const user = models.User.create({
-    //   id: 1,
-    //   name: 'Mod4 Student',
-    //   email: 'student@example.com',
-    //   password: bcrypt.hashSync('password', config.saltRounds),
-    //   role: params.user.roles.user,
-    //   style_survey: 3
-    // })
-    // console.log(user.id)
-    // console.log("INFO - Mod4 Student user created.")
-
     const user_response = await request(server)
       .post('/')
       .send({
@@ -137,5 +126,13 @@ describe('user queries', () => {
 
     expect(user_response.body.errors[0].message).toBe(`We cannot find that user.`)
   done()
+  })
+
+  xit('can find a style description given a styleId', async (done) => {
+
+  })
+
+  xit('cannot find a style description given a styleId that does not exsist', async (done) => {
+
   })
 })
