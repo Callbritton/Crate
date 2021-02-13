@@ -105,4 +105,11 @@ class Survey extends PureComponent {
   }
 }
 
-export default connect(null, { messageShow, messageHide, saveStyle })(withRouter(Survey));
+// Component State
+function surveyState(state) {
+  return {
+    user: state.user,
+  }
+}
+
+export default connect(surveyState, { messageShow, messageHide, saveStyle })(withRouter(Survey));

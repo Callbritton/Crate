@@ -9,34 +9,34 @@ export function saveStyle (styleScore) {
     })
   }
 
-  return axios.post(routeApi, query({
-    operation: '',
-    variables: userCredentials,
-    fields: ['user {name, email, role, style_survey}', 'token']
+  return axios.post(routeApi, mutation({
+    operation: 'crateUpdate',
+    variables: {user: user, score: styleScore},
+    fields: ['id']
   }))
-    .then(response => {
-      let error = ''
-
-      if (response.data.errors && response.data.errors.length > 0) {
-        error = response.data.errors[0].message
-      } else if (response.data.data.userLogin.token !== '') {
-        const token = response.data.data.userLogin.token
-        const user = response.data.data.userLogin.user
-
-        dispatch(setUser(token, user))
-
-        loginSetUserLocalStorageAndCookie(token, user)
-      }
-
-      dispatch({
-        type: LOGIN_RESPONSE,
-        error
-      })
-    })
-    .catch(error => {
-      dispatch({
-        type: LOGIN_RESPONSE,
-        error: 'Please try again'
-      })
-    })
+    // .then(response => {
+    //   let error = ''
+    //
+    //   if (response.data.errors && response.data.errors.length > 0) {
+    //     error = response.data.errors[0].message
+    //   } else if (response.data.data.userLogin.token !== '') {
+    //     const token = response.data.data.userLogin.token
+    //     const user = response.data.data.userLogin.user
+    //
+    //     dispatch(setUser(token, user))
+    //
+    //     loginSetUserLocalStorageAndCookie(token, user)
+    //   }
+    //
+    //   dispatch({
+    //     type: LOGIN_RESPONSE,
+    //     error
+    //   })
+    // })
+    // .catch(error => {
+    //   dispatch({
+    //     type: LOGIN_RESPONSE,
+    //     error: 'Please try again'
+    //   })
+    // })
 }
