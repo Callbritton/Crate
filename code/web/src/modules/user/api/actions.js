@@ -12,6 +12,9 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
+export const STYLE_SCORE_REQUEST = 'AUTH/STYLE_SCORE_REQUEST'
+export const STYLE_SCORE_RESPONSE = 'AUTH/STYLE_SCORE_RESPONSE'
+export const STYLE_SCORE_FAILURE = 'AUTH/STYLE_SCORE_FAILURE'
 
 // Actions
 
@@ -116,5 +119,39 @@ export function getGenders() {
       operation: 'userGenders',
       fields: ['id', 'name']
     }))
+  }
+}
+
+export function getStyle(isLoading = true) {
+  return dispatch => {
+    dispatch({
+      type: STYLE_SCORE_REQUEST,
+      error: null,
+      isLoading
+    })
+
+  return axios.post(routeApi, query({
+    operation: 'styleByUser',
+    fields: ['id', 'description', 'image_url']
+  }))
+    .then(response => {
+      if (response.status === 200) {
+        dispatch({
+          type: STYLE_SCORE_RESPONSE,
+          error: null,
+          isLoading: false,
+          userStyle: response.data.styleByUser
+        })
+      } else {
+        console.error(response)
+      }
+    })
+    .catch(error => {
+      dispatch({
+        type: STYLE_SCORE_FAILURE,
+        error: 'Some error occurred. Please try again.',
+        isLoading: false
+      })
+    })
   }
 }

@@ -1,8 +1,11 @@
-import { ADD_STYLE_SCORE, GET_STYLE_SCORE } from './actions'
+import { ADD_STYLE_SCORE } from './actions'
+import { STYLE_SCORE_REQUEST, STYLE_SCORE_RESPONSE, STYLE_SCORE_FAILURE } from '../user/api/actions'
 
 // Initial State
 const surveyInitialState = {
-  score: 0
+  score: 0,
+  error: null,
+  isLoading: false
 }
 
 // State
@@ -14,10 +17,25 @@ export const survey = (state = surveyInitialState, action) => {
         score: action.score
       }
 
-    case GET_STYLE_SCORE:
+    case STYLE_SCORE_REQUEST:
       return {
         ...state,
-        score: state.score
+        error: action.error,
+        isLoading: action.isLoading
+      }
+
+    case STYLE_SCORE_RESPONSE:
+      return {
+        ...state,
+        error: action.error,
+        isLoading: action.isLoading,
+        score: action.userStyle
+      }
+
+    case STYLE_SCORE_FAILURE:
+      return {
+        ...state,
+        error: action.error
       }
 
     default:
