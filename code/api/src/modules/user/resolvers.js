@@ -27,6 +27,23 @@ export async function create(parentValue, { name, email, password }) {
   }
 }
 
+export async function update(parentValue, { id, name, password, email, style_survey, role }, { auth }) {
+  if(auth.user) {
+    return await models.User.update(
+      {
+        name,
+        password,
+        email,
+        style_survey,
+        role
+      },
+      {where: {id}}
+    )
+  } else {
+    throw new Error('Operation denied.')
+  }
+}
+
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
 
