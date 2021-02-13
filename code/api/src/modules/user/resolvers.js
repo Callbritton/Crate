@@ -27,22 +27,41 @@ export async function create(parentValue, { name, email, password }) {
   }
 }
 
-export async function update(parentValue, { id, name, password, email, style_survey, role }, { auth }) {
-  if(auth.user) {
-    return await models.User.update(
+
+export async function update(parentValue, { name, email, password, role, style_survey }) {
+  // if(auth.user) {
+  const userUpdate = await models.User.findOne( {where: { email } })
       {
-        name,
-        password,
-        email,
-        style_survey,
-        role
-      },
-      {where: {id}}
-    )
-  } else {
-    throw new Error('Operation denied.')
-  }
+        userUpdate.style_survey = style_survey
+      }
+      await userUpdate.save()
+    return userUpdate
+    if(!user) {
+      throw new Error('User does not exsist!')
+    } else {
+      return await models.User.findOne({ where: { email } })
+    }
+  // } else {
+  //    throw new Error('Operation denied.')
+  // }
 }
+
+// export async function update(parentValue, { id, name, password, email, style_survey, role }, { auth }) {
+//   if(auth.user) {
+//     return await models.User.update(
+//       {
+//         name,
+//         password,
+//         email,
+//         style_survey,
+//         role
+//       },
+//       {where: {id}}
+//     )
+//   } else {
+//     throw new Error('Operation denied.')
+//   }
+// }
 
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
@@ -64,7 +83,8 @@ export async function login(parentValue, { email, password }) {
         id: userDetails.id,
         name: userDetails.name,
         email: userDetails.email,
-        role: userDetails.role
+        role: userDetails.role,
+        style_survey: userDetails.style_survey
       }
 
       return {

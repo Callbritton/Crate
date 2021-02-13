@@ -15,6 +15,7 @@ export const LOGOUT = 'AUTH/LOGOUT'
 export const STYLE_SCORE_REQUEST = 'AUTH/STYLE_SCORE_REQUEST'
 export const STYLE_SCORE_RESPONSE = 'AUTH/STYLE_SCORE_RESPONSE'
 export const STYLE_SCORE_FAILURE = 'AUTH/STYLE_SCORE_FAILURE'
+export const GET_STYLE_SCORE = 'GET_STYLE_SCORE'
 
 // Actions
 
@@ -67,6 +68,28 @@ export function login(userCredentials, isLoading = true) {
           error: 'Please try again'
         })
       })
+  }
+}
+
+export function updateUser(userDetails, styleScore) {
+  console.log("Details", userDetails)
+
+  return dispatch => {
+    dispatch({
+      type: GET_STYLE_SCORE,
+      details: { name: userDetails.name, role: userDetails.role, email: userDetails.email, style_survey: styleScore }
+    })
+
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate',
+      variables: {
+        name: userDetails.name,
+        email: userDetails.email,
+        role: userDetails.role,
+        style_survey: styleScore
+      },
+      fields: ['name, email, role, style_survey']
+    }))
   }
 }
 

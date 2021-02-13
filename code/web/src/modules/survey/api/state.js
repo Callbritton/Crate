@@ -14,12 +14,6 @@ export const survey = (state = surveyInitialState, action) => {
         score: action.score
       }
 
-    case GET_STYLE_SCORE:
-      return {
-        ...state,
-        score: state.score
-      }
-
     default:
       return state
 

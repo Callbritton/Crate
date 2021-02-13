@@ -32,6 +32,33 @@ export const userSignup = {
   resolve: create
 }
 // Update
+export const userUpdate = {
+  type: UserType,
+  args: {
+    id: {
+      name: 'id',
+      type: GraphQLInt
+    },
+    name: {
+      name: 'name',
+      type: GraphQLString
+    },
+    email: {
+      name: 'email',
+      type: GraphQLString
+    },
+    role: {
+      name: 'role',
+      type: GraphQLString
+    },
+    style_survey: {
+      name: 'style_survey',
+      type: GraphQLInt
+    }
+  },
+  resolve: update
+}
+
 export const styleUpdate = {
   type: UserType,
   args: {
