@@ -29,13 +29,13 @@ exit
 cd code/api
 npm start
 ```
-open a new terminal tab
+* open a new terminal tab
 ```
 cd code/web
 npm start
 ```
-Open localhost:8000 in your web browser
-Open localhost:3000 in your web browser
+* Open localhost:8000 in your web browser
+* Open localhost:3000 in your web browser
 
 ## How to Use Application
 
