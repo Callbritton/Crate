@@ -11,7 +11,7 @@ import { messageShow, messageHide } from '../common/api/actions'
 import { primary } from '../../ui/common/gradients'
 import { white } from '../../ui/common/colors'
 import { saveStyle } from '../survey/api/actions'
-import { updateUser } from './api/actions'
+import { updateUser, getStyle } from './api/actions'
 
 class Survey extends PureComponent {
   constructor(props) {
@@ -49,7 +49,7 @@ class Survey extends PureComponent {
     return result[0]
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
 
     if (this.checkCompletion()) {
@@ -57,8 +57,8 @@ class Survey extends PureComponent {
       let result = this.determineStyleNum(userAnswers)
       this.setState({ styleNum: result, isComplete: true })
       this.props.saveStyle(result)
-      this.props.updateUser(this.props.user.details, result)
-      console.log(this.props.user.details)
+      await this.props.updateUser(this.props.user.details, result)
+      await this.props.getStyle(this.props.user.details)
       this.props.history.push(userRoutes.profile.path)
     } else {
       this.props.messageShow('Please answer all questions');
@@ -114,4 +114,4 @@ function surveyState(state) {
   }
 }
 
-export default connect(surveyState, { messageShow, messageHide, saveStyle, updateUser })(withRouter(Survey));
+export default connect(surveyState, { messageShow, messageHide, saveStyle, updateUser, getStyle })(withRouter(Survey));
