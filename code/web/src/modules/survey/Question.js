@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, GridCell } from '../../ui/grid'
-import { primary } from '../../ui/common/gradients'
-import { white, secondary } from '../../ui/common/colors'
+import { primary, secondary } from '../../ui/common/gradients'
+import { white } from '../../ui/common/colors'
 
 
 class Question extends PureComponent {
@@ -22,9 +22,8 @@ class Question extends PureComponent {
   }
 
   showSelected = (choiceNum) => {
-    const start = { padding: '0.5em', border: 'solid black 1px', width: '50%'}
-    const selected = { padding: '0.5em', border: 'solid black 1px', width: '50%', background: secondary }
-    console.log(this.state, choiceNum)
+    const start = { display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '25px', padding: '0.5em', width: '50%'}
+    const selected = { display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '25px', padding: '0.5em', width: '50%', background: secondary }
 
     if (!this.state) {
       return start
@@ -45,7 +44,7 @@ class Question extends PureComponent {
           id={ choice.value }
           src={ choice.image }
           alt={ choice.label }
-          style={{ width: '100px', height: '100px', objectFit: 'contain' }}>
+          style={{ width: '13em', height: '13em', objectFit: 'contain' }}>
         </img>
         <p id={ choice.value }>{ choice.label }
         </p>
@@ -58,9 +57,9 @@ class Question extends PureComponent {
     const { title, choices, id } = this.props;
 
     return (
-      <div style={{ margin: '1em 0em', border: 'solid black 1px'}}>
+      <div style={{ margin: '1em 0em' }}>
         <Grid>
-          <GridCell style={{ background: primary, color: white }}>
+          <GridCell style={{ padding: '1em', background: primary, color: white }}>
             <h3>{ title }</h3>
           </GridCell>
         </Grid>

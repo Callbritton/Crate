@@ -72,7 +72,7 @@ export const surveyData = {
           value: 3
         },
         {
-          image: "https://i.imgur.com/Pw8lR3V.jpeg",
+          image: "https://denver.cbslocal.com/wp-content/uploads/sites/15909806/2018/10/bamboo-sushi-kay-a-yelp.jpg?resize=640,427",
           label: "Sushi",
           value: 4
         }
@@ -124,7 +124,7 @@ export const surveyData = {
           value: 3
         },
         {
-          image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-86099434-1559917897.jpg",
+          image: "https://www.nme.com/wp-content/uploads/2020/06/Prince-Purple-Rain-696x442.jpg",
           label: "R&B/Hip Hop",
           value: 4
         }
