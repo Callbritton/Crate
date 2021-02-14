@@ -76,7 +76,7 @@ const Profile = (props) => {
       <div style={{background: grey, border: '1px solid black', textAlign: 'center', padding: '2em'}}>
         <H4 style={{ marginBottom: '0.5em'}}>Your style is:</H4>
         <H3 style={{ fontWeight: 'bold' }}>{ props.user.style.description }</H3>
-        <img src={ props.user.style.image_url } alt={ props.user.style.description }/>
+        <img src={ props.user.style.image_url } alt={ props.user.style.description } style={{ marginTop: "1em", width: '20em', height: '20em', objectFit: 'contain' }}/>
       </div>
     </div>
   )
