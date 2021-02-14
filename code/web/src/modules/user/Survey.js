@@ -51,7 +51,6 @@ class Survey extends PureComponent {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-
     if (this.checkCompletion()) {
       const userAnswers = Object.values(this.state.userChoices)
       let result = this.determineStyleNum(userAnswers)
