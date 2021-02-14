@@ -31,7 +31,7 @@ npm start
 ```
 open a new terminal tab
 ```
-cd ../web
+cd code/web
 npm start
 ```
 Open localhost:8000 in your web browser
