@@ -1,5 +1,5 @@
 // Imports
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -13,7 +13,7 @@ import { grey, grey2 } from '../../ui/common/colors'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
-import { logout } from './api/actions'
+import { logout, getStyle } from './api/actions'
 // import SurveyItem from '../survey/Item'
 // we need to add a Item.js to the '/survey' folder to export
 
@@ -67,4 +67,4 @@ function profileState(state) {
   }
 }
 
-export default connect(profileState, { logout })(Profile)
+export default connect(profileState, { logout, getStyle })(Profile)

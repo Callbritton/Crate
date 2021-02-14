@@ -13,7 +13,7 @@ export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
 export const STYLE_SCORE_REQUEST = 'AUTH/STYLE_SCORE_REQUEST'
-export const STYLE_SCORE_RESPONSE = 'AUTH/STYLE_SCORE_RESPONSE'
+export const STYLE_SCORE_RESPONSE = 'STYLE_SCORE_RESPONSE'
 export const STYLE_SCORE_FAILURE = 'AUTH/STYLE_SCORE_FAILURE'
 export const GET_STYLE_SCORE = 'GET_STYLE_SCORE'
 
@@ -70,6 +70,41 @@ export function login(userCredentials, isLoading = true) {
       })
   }
 }
+
+export function getStyle (userDetails, isLoading = true) {
+  return dispatch => {
+    // dispatch({
+    //   type: STYLE_SCORE_REQUEST,
+    //   error: null,
+    //   isLoading
+    // })
+  return axios.post(routeApi, query({
+    operation: 'styleById',
+    variables: {
+      styleId: userDetails.style_survey
+    },
+    fields: ['id', 'description', 'image_url']
+  }))
+    .then(response => {
+      if (response.status === 200) {
+        dispatch({
+          type: STYLE_SCORE_RESPONSE,
+          error: null,
+          isLoading: false,
+          style: response.data.styleById
+        })
+      } else {
+        console.error(response)
+      }
+    })
+    .catch(error => {
+      dispatch({
+        type: STYLE_SCORE_FAILURE,
+        error: 'Some error occurred. Please try again.',
+        isLoading: false
+      })
+    })
+  }
 
 export function updateUser(userDetails, styleScore) {
   console.log("Details", userDetails)
