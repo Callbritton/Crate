@@ -72,7 +72,6 @@ export function login(userCredentials, isLoading = true) {
 }
 
 export function getStyle (userDetails, isLoading = true) {
-  console.log("peanut butter falcon")
   return dispatch => {
   return axios.post(routeApi, query({
     operation: 'styleById',
@@ -83,7 +82,6 @@ export function getStyle (userDetails, isLoading = true) {
   }))
     .then(response => {
       if (response.status === 200) {
-        console.log('response', response.data.data)
         dispatch({
           type: STYLE_SCORE_RESPONSE,
           error: null,

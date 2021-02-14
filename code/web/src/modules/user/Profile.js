@@ -18,8 +18,6 @@ import { logout, getStyle } from './api/actions'
 // Component
 const Profile = (props) => {
 
-  console.log('user', props.user.style)
-
   const getDescription = () => {
     if (props.user.style) {
       return props.user.style.description
