@@ -5,11 +5,12 @@ import { surveyData } from '../survey/surveyData'
 import Question from '../survey/Question'
 import Button from '../../ui/button/Button'
 import { Grid, GridCell } from '../../ui/grid'
+import { H3 } from '../../ui/typography'
 import userRoutes from '../../setup/routes/user'
 import { Link, withRouter } from 'react-router-dom'
 import { messageShow, messageHide } from '../common/api/actions'
 import { primary } from '../../ui/common/gradients'
-import { white } from '../../ui/common/colors'
+import { white, grey, grey2 } from '../../ui/common/colors'
 import { saveStyle } from '../survey/api/actions'
 import { updateUser, getStyle } from './api/actions'
 
@@ -51,7 +52,6 @@ class Survey extends PureComponent {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-
     if (this.checkCompletion()) {
       const userAnswers = Object.values(this.state.userChoices)
       let result = this.determineStyleNum(userAnswers)
@@ -85,17 +85,17 @@ class Survey extends PureComponent {
 
   render() {
     return (
-      <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', border: "solid black 1px"}}>
-        <Grid>
+      <div style={{padding: '2em', textAlign: 'center', display: 'flex', justifyContent: 'center', flexDirection: 'column', border: "solid black 1px"}}>
+        <Grid style={{ padding: '1em', backgroundColor: grey }}>
           <GridCell>
-            <h1>Style Preferences</h1>
+            <H3 font="secondary">Style Preferences</H3>
+            <p style={{ marginTop: '1em', color: grey2 }}>
+            Complete the survey below to find your style!
+            </p>
           </GridCell>
         </Grid>
         <Grid>
           <GridCell>
-          <h3 style={{ marginTop: '1.5em' }}>
-              Complete the survey below to find your style!
-          </h3>
           { this.surveyQuestions }
           </GridCell>
         </Grid>

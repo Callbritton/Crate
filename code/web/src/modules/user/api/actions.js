@@ -72,7 +72,6 @@ export function login(userCredentials, isLoading = true) {
 }
 
 export function getStyle (userDetails, isLoading = true) {
-  console.log("peanut butter falcon")
   return dispatch => {
   return axios.post(routeApi, query({
     operation: 'styleById',
@@ -83,7 +82,6 @@ export function getStyle (userDetails, isLoading = true) {
   }))
     .then(response => {
       if (response.status === 200) {
-        console.log('response', response.data.data)
         dispatch({
           type: STYLE_SCORE_RESPONSE,
           error: null,
@@ -175,37 +173,3 @@ export function getGenders() {
     }))
   }
 }
-
-// export function getStyle(isLoading = true) {
-//   return dispatch => {
-//     dispatch({
-//       type: STYLE_SCORE_REQUEST,
-//       error: null,
-//       isLoading
-//     })
-//
-//   return axios.post(routeApi, query({
-//     operation: 'styleByUser',
-//     fields: ['id', 'description', 'image_url']
-//   }))
-//     .then(response => {
-//       if (response.status === 200) {
-//         dispatch({
-//           type: STYLE_SCORE_RESPONSE,
-//           error: null,
-//           isLoading: false,
-//           userStyle: response.data.styleByUser
-//         })
-//       } else {
-//         console.error(response)
-//       }
-//     })
-//     .catch(error => {
-//       dispatch({
-//         type: STYLE_SCORE_FAILURE,
-//         error: 'Some error occurred. Please try again.',
-//         isLoading: false
-//       })
-//     })
-//   }
-// }

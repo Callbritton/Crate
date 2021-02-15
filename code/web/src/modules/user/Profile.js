@@ -1,5 +1,5 @@
 // Imports
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -14,18 +14,9 @@ import { grey, grey2 } from '../../ui/common/colors'
 // App Imports
 import userRoutes from '../../setup/routes/user'
 import { logout, getStyle } from './api/actions'
-// import SurveyItem from '../survey/Item'
-// we need to add a Item.js to the '/survey' folder to export
-
 
 // Component
 const Profile = (props) => {
-
-  // useEffect(() => {
-  //   getStyle(props.user.details)
-  // }, [])
-
-  console.log('user', props.user.style)
 
   const getDescription = () => {
     if (props.user.style) {

@@ -28,12 +28,18 @@ class Item extends PureComponent {
     }
   }
 
+  chooseNavigation = () => {
+    return this.props.user.style ? userRoutes.subscriptions.path : userRoutes.survey.path
+  }
+
   onClickSubscribe = (crateId) => {
     this.setState({
       isLoading: true
     })
 
     this.props.messageShow('Subscribing, please wait...')
+
+
 
     this.props.create({ crateId })
       .then(response => {
@@ -42,7 +48,7 @@ class Item extends PureComponent {
         } else {
           this.props.messageShow('Subscribed successfully.')
 
-          this.props.history.push(userRoutes.survey.path)
+          this.props.history.push(this.chooseNavigation())
         }
       })
       .catch(error => {
