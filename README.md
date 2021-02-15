@@ -9,11 +9,24 @@
 This project works in legacy code in an eCommerce store that sells subscrition clothing packages. Our team added the ability for a user to take a survey and assign a style based on their results.
 
 ### Table of Contents
+  - [Application Architectual Overview](#application-architectural-overview)
   - [How to Install Application](#how-to-install-application)
   - [How to Use Application](#how-to-use-application)
   - [Testing](#testing)
   - [Licenses](#licenses)
   - [Contact](#contact)
+
+## Application Architectural Overview
+
+<p align="center">
+ <img src="https://i.imgur.com/LKOUbuQ.png">
+</p>
+
+<p align="center">
+ <img src="https://i.imgur.com/CIK7VnR.png">
+</p>
+
+
 
 ## How to Install Application
 
