@@ -59,6 +59,6 @@ You should be redirected to take a survey. The survey results will give you an a
 
 #### Aaron Townsend: [GitHub](https://github.com/atownse)
 #### Bruce Gordon: [GitHub](https://github.com/bruce-gordon)
-#### Bruce Gordon: [GitHub](https://github.com/Callbritton)
+#### Christopher Allbritton: [GitHub](https://github.com/Callbritton)
 #### George Soderholm: [GitHub](https://github.com/GeorgieGirl24)
 #### Sage Gonzales: [GitHub](https://github.com/SageOfCode)
