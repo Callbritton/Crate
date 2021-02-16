@@ -75,6 +75,8 @@ The pictures selected will have a border to indicate that they have been selecte
 
 You are then taken to the profile page, which has your style preference as well as an image that represents that preference
 
+<a href="https://imgur.com/0PU0ypT"><img src="https://i.imgur.com/0PU0ypT.png" title="source: imgur.com" /></a>
+
 ## Testing
 
 * For testing we used Jest for unit and feature testing.
